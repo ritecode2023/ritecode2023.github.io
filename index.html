@@ -4,7 +4,7 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene cursor="rayOrigin: mouse">
         <!-- Floor -->
         <a-box color="#603B13" position="0 -1 0" width="10" height="0.1" depth="10"></a-box>
 
@@ -17,11 +17,11 @@
         <!-- Ceiling -->
         <a-box color="#603B13" position="0 3 0" width="10" height="0.1" depth="10"></a-box>
 
-        <!-- TV with Hyperlink -->
+        <!-- TV with Hyperlink and Cursor -->
         <a-box position="0 0.75 -3" width="2" height="1.2" depth="0.1" color="black">
-            <a-image src="https://ritecode2023.github.io/tv.jpg" position="0 0 0.051" width="1.8" height="1">
-            </a-image>
-            <a-link href="https://ritecode2023.github.io/redirect.html" target="_blank"></a-link>
+            <!-- Transparent Plane for Click Event on TV Screen -->
+            <a-plane position="0 0 0.052" width="1.8" height="1" color="transparent" 
+                     cursor-listener="event: click; href: https://ritecode2023.github.io/gamemenu.html;"></a-plane>
         </a-box>
 
         <!-- Small Table -->
@@ -41,6 +41,24 @@
         <a-box position="4 0.5 -4" width="1.5" height="4.6" depth="0.3" color="#654321"></a-box>
         <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
         <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
+
+        <!-- Text above TV -->
+        <a-text value="Click on the TV to open menu" position="0 1.75 -3" color="blue" align="center" width="4"></a-text>
     </a-scene>
+
+    <script>
+        AFRAME.registerComponent('cursor-listener', {
+            schema: {
+                href: { default: '' }
+            },
+            init: function () {
+                this.el.addEventListener('click', () => {
+                    if (this.data.href !== '') {
+                        window.open(this.data.href, '_blank');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
