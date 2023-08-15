@@ -1,7 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <a-scene>
+        <!-- Floor -->
+        <a-box color="#603B13" position="0 -1 0" width="10" height="0.1" depth="10"></a-box>
+
+        <!-- Walls -->
+        <a-box color="#CE893F" position="0 1 -5" width="10" height="4" depth="0.2"></a-box>
+        <a-box color="#CE893F" position="0 1 5" width="10" height="4" depth="0.2"></a-box>
+        <a-box color="#CE893F" position="-5 1 0" width="0.2" height="4" depth="10"></a-box>
+        <a-box color="#CE893F" position="5 1 0" width="0.2" height="4" depth="10"></a-box>
+
+        <!-- Ceiling -->
+        <a-box color="#603B13" position="0 3 0" width="10" height="0.1" depth="10"></a-box>
+
+        <!-- TV with Hyperlink -->
+        <a-box position="0 0.75 -3" width="2" height="1.2" depth="0.1" color="black">
+            <a-image src="https://ritecode2023.github.io/tv.jpg" position="0 0 0.051" width="1.8" height="1">
+            </a-image>
+            <a-link href="https://www.google.com" target="_blank"></a-link>
+        </a-box>
+
+        <!-- Small Table -->
+        <a-box color="#A0522D" position="-4.5 -1 4.5" width="0.8" height="1.5" depth="0.8"></a-box>
+
+        <!-- Flower Vase -->
+        <a-cylinder color="#228B22" position="-4.5 0 4.5" radius="0.1" height="0.8" rotation="0 90 0"></a-cylinder>
+        <a-cone color="#FF1493" position="-4.5 0.5 4.5" radius-bottom="0.05" radius-top="0.15" height="0.4" rotation="0 90 0"></a-cone>
+        
+        <!-- Ceiling Light -->
+        <a-light type="point" position="0 3 0" intensity="1.8" color="white"></a-light>
+
+         <!-- Carpet -->
+         <!--a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#2C3E50"></a-plane-->
+
+         <!-- Bookshelf -->
+        <a-box position="4 0.5 -4" width="1.5" height="4.6" depth="0.3" color="#654321"></a-box>
+        <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
+        <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
+    </a-scene>
 </body>
 </html>
